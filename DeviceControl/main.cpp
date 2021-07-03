@@ -42,8 +42,6 @@ int main(int argc, char *argv[])
    }, Qt::QueuedConnection);
   engine.load(url);
 
-int a=0;
-int b=5;
-int suma= a+b;
+
     return app.exec();
 }
