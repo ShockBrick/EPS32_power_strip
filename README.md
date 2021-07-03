@@ -1,1 +1,1 @@
-# EPS32_power_strip
+# ESP32_power_strip
