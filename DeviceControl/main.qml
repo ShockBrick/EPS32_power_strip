@@ -77,34 +77,65 @@ Window {
         }
     }
 
-    ComboBox {
-        id: cbDevice
+
+    Rectangle{
+        id:ldRect
         x:5
-        y:lRect.height+15
+         y:lRect.height+15
         width: lRect.width
         height: lRect.height
+        color:"cadetblue"
 
-        background: Rectangle {
-                color:"cadetblue"
-              border.width: parent && parent.activeFocus ? 2 : 1
-              border.color: parent && parent.activeFocus ? cbDevice.palette.highlight : cbDevice.palette.button
-            }
-            textRole: "text"
-            // Set the initial currentIndex to the value stored in the backend.
-            model: ModelOfSearchedDevices{
-                list: lll
-            }
+        BtDeviceList{
+            id: cbDevice
 
-            // When an item is selected, update the backend.
-            onActivated: {
-                backend.modifier = currentValue}
+    anchors.centerIn: parent
+    //        background: Rectangle {
+    //                color:"cadetblue"
+    //              border.width: parent && parent.activeFocus ? 2 : 1
+    //              border.color: parent && parent.activeFocus ? cbDevice.palette.highlight : cbDevice.palette.button
+    //            }
+    //            textRole: "text"
+    //            // Set the initial currentIndex to the value stored in the backend.
+    //            model: ModelOfSearchedDevices{
+    //                list: lll
+    //            }
+
+    //            // When an item is selected, update the backend.
+    //            onActivated: {
+    //                backend.modifier = currentValue}
+        }
+    }
+
+
+//    ComboBox {
+//        id: cbDevice
+//        x:5
+//        y:lRect.height+15
+//        width: lRect.width
+//        height: lRect.height
+
+//        background: Rectangle {
+//                color:"cadetblue"
+//              border.width: parent && parent.activeFocus ? 2 : 1
+//              border.color: parent && parent.activeFocus ? cbDevice.palette.highlight : cbDevice.palette.button
+//            }
+//            textRole: "text"
+//            // Set the initial currentIndex to the value stored in the backend.
+//            model: ModelOfSearchedDevices{
+//                list: lll
+//            }
+
+//            // When an item is selected, update the backend.
+//            onActivated: {
+//                backend.modifier = currentValue}
 
 
 
-}
+//}
     Rectangle{
         id:rdRect
-        x:cbDevice.width+15
+        x:ldRect.width+15
         y:rRect.height+15
         width: rRect.width
         height: rdRectText.height+15

@@ -31,3 +31,5 @@ HEADERS += \
     modelofsdlist.h \
     modelofsearcheddevices.h \
     serchbtdevice.h
+
+DISTFILES +=
