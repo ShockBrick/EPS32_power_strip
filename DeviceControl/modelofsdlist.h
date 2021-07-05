@@ -10,7 +10,7 @@
 #include <QVector>
 struct DeviceAddressItem
 {
-    bool done;
+
     QString addressBL;
 };
 
@@ -27,6 +27,10 @@ public:
 
 
 
+
+
+
+
 signals:
     void preItemAppended();
     void postIteamAppended();
@@ -34,9 +38,13 @@ signals:
     void preItemRemoved(int index);
     void postItemRemoved();
 
+
+
+
 public slots:
     void appendItem();
     void removeCompletedItems();
+    void updatedItems(  QList<QString> comboList);
 
 private:
     QVector<DeviceAddressItem> mItems;

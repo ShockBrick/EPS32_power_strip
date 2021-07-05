@@ -27,20 +27,22 @@ int main(int argc, char *argv[])
     QQmlContext *context=engine.rootContext();
 
     QVector<DeviceAddressItem> apom = l1->items();
-//qDebug()<<apom.first().addressBL;
- context->setContextProperty("lll",l1);
-   context->setContextProperty("_Device1",device1);
+    qDebug()<<apom.first().addressBL;
+    QObject::connect(device1, &SerchBtDevice::comboListChanged,l1,[=](){
+        l1->updatedItems(device1->getComboList());
+    });
+
+    context->setContextProperty("lll",l1);
+    context->setContextProperty("_Device1",device1);
 
 
-
-
-   const QUrl url(QStringLiteral("qrc:/main.qml"));
-   QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                    &app, [url](QObject *obj, const QUrl &objUrl) {
-       if (!obj && url == objUrl)
-           QCoreApplication::exit(-1);
-   }, Qt::QueuedConnection);
-  engine.load(url);
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+        if (!obj && url == objUrl)
+            QCoreApplication::exit(-1);
+    }, Qt::QueuedConnection);
+    engine.load(url);
 
 
     return app.exec();

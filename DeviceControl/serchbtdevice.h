@@ -4,7 +4,11 @@
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QObject>
 #include <QList>
+#include <QVector>
 #include <QQmlListProperty>
+
+class  ModelOfSDList;
+
 class SerchBtDevice : public QObject
 {
 
@@ -14,6 +18,7 @@ class SerchBtDevice : public QObject
 //
 public:
     SerchBtDevice();
+     QList<QString> getComboList();
 public slots:
     void startSearching();
 

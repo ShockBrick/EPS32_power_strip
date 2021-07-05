@@ -3,7 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.3
 
-
+import Devices11 1.0
 
     ListView{
 
@@ -11,20 +11,22 @@ import QtQuick.Layouts 1.3
         implicitHeight: lRect.height
 clip:true
 
-        model: ListModel{
-            ListElement{
-                device: "iPhone"
+//        model: ListModel{
+//            ListElement{
+//                device: "iPhone"
+//            }
+//            ListElement{
+//                device: "Samsung"
+//            }
+//        }
+            model: ModelOfSearchedDevices{
+                list: lll
             }
-            ListElement{
-                device: "Samsung"
-            }
-        }
-
         delegate: RowLayout{
             width: parent.width
             TextField{
 
-                text: model.device
+                text: model.description
                 Layout.fillWidth: true
 
 

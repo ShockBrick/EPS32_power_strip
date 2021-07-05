@@ -1,9 +1,9 @@
 #include "modelofsdlist.h"
-
+#include <QDebug>
 ModelOfSDList::ModelOfSDList(QObject *parent) : QObject(parent)
 {
-    mItems.append({true, QStringLiteral("IPhone")});
-    mItems.append({true, QStringLiteral("Samsung")});
+   mItems.append({ QStringLiteral("IPhone")});
+  mItems.append({QStringLiteral("Samsung")});
 }
 
 QVector<DeviceAddressItem> ModelOfSDList::items() const
@@ -25,12 +25,25 @@ bool ModelOfSDList::setItemAt(int index, const DeviceAddressItem &item)
     return true;
 }
 
+void ModelOfSDList::updatedItems(QList<QString> comboList)
+{
+
+    mItems.clear();
+    for (const auto &i:comboList)
+    {
+
+        mItems.append({i});
+         qDebug()<<"Dodane do mItems:    "<<mItems.last().addressBL;
+    }
+
+}
+
 void ModelOfSDList::appendItem()
 {
     emit preItemAppended();
 
     DeviceAddressItem  item;
-    item.done = false;
+    //item.done = false;
     mItems.append(item);
 
     emit postIteamAppended();
@@ -38,8 +51,11 @@ void ModelOfSDList::appendItem()
 
 void ModelOfSDList::removeCompletedItems()
 {
-    for(int i=0; i<mItems.size();){
-        if(mItems.at(i).done){emit preItemRemoved(i); mItems.removeAt(i); emit postItemRemoved();}
-        else{++i;}
-    }
+    emit preItemRemoved(1); mItems.removeAt(1); emit postItemRemoved();
+
+
 }
+
+
+
+

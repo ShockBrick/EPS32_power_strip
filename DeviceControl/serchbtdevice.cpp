@@ -2,10 +2,6 @@
 #include <QDebug>
 
 
-
-
-
-
 SerchBtDevice::SerchBtDevice()
 {
 
@@ -19,6 +15,11 @@ SerchBtDevice::SerchBtDevice()
 
 
 
+}
+
+QList<QString> SerchBtDevice::getComboList()
+{
+    return comboList;
 }
 
 
@@ -35,7 +36,7 @@ if(comboList.size()!=0) comboList.clear(); // if(DeviceInformation->size()!=0) D
 
 void SerchBtDevice::captureDeviceProperties(const QBluetoothDeviceInfo &device)
 {
- qDebug() << "Custom coordinate type:" ;
+// qDebug() << "Custom coordinate type:" ;
 //    DeviceInformation->push_back(device.name() + " " + device.address().toString());
 // qDebug() << DeviceInformation->last() ;
 

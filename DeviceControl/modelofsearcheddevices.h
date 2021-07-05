@@ -10,13 +10,13 @@ class  ModelOfSDList;
 class ModelOfSearchedDevices : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(ModelOfSDList *list READ list WRITE setList )
+    Q_PROPERTY(ModelOfSDList *list READ list WRITE setList  )
 
 public:
     explicit ModelOfSearchedDevices(QObject *parent = nullptr);
 
     enum{
-        DoneRole = Qt::UserRole,
+
         DescriptionRole
     };
     // Basic functionality:

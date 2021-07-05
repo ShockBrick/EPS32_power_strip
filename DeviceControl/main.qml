@@ -90,20 +90,6 @@ Window {
             id: cbDevice
 
     anchors.centerIn: parent
-    //        background: Rectangle {
-    //                color:"cadetblue"
-    //              border.width: parent && parent.activeFocus ? 2 : 1
-    //              border.color: parent && parent.activeFocus ? cbDevice.palette.highlight : cbDevice.palette.button
-    //            }
-    //            textRole: "text"
-    //            // Set the initial currentIndex to the value stored in the backend.
-    //            model: ModelOfSearchedDevices{
-    //                list: lll
-    //            }
-
-    //            // When an item is selected, update the backend.
-    //            onActivated: {
-    //                backend.modifier = currentValue}
         }
     }
 
@@ -150,6 +136,10 @@ Window {
             MouseArea{
                 id:mouseAreaRdRect
                 anchors.fill:parent
+onClicked: lll.removeCompletedItems();
+
+
+
             }
         }
     }

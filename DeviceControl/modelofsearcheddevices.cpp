@@ -25,16 +25,9 @@ QVariant ModelOfSearchedDevices::data(const QModelIndex &index, int role) const
     if (!index.isValid() || !mList)
         return QVariant();
 
-    const DeviceAddressItem item = mList->items().at(index.row());
 
-    switch (role){
-    case DoneRole:
-            return QVariant(item.done);
-    case DescriptionRole:
-        return  QVariant(item.addressBL);
-    }
-//    const DeviceAddressItem item = mList->items().at(index.row());
-//    return QVariant(item.addressBL);
+    const DeviceAddressItem item = mList->items().at(index.row());
+    return QVariant(item.addressBL);
 
     return QVariant();
 }
@@ -49,16 +42,9 @@ bool ModelOfSearchedDevices::setData(const QModelIndex &index, const QVariant &v
      item.addressBL=value.toString();
 
 
-     switch (role){
-     case DoneRole:
-            item.done=value.toBool();
-          //  qDebug()<<item.done;
-         break;
-     case DescriptionRole:
+
          item.addressBL=value.toString();
-        // qDebug()<<item.addressBL;
-         break;
-     }
+
 
 
 
@@ -80,7 +66,6 @@ Qt::ItemFlags ModelOfSearchedDevices::flags(const QModelIndex &index) const
 QHash<int, QByteArray> ModelOfSearchedDevices::roleNames() const
 {
     QHash<int, QByteArray> names;
-    names [DoneRole] = "done";
     names[DescriptionRole] = "description";
     return names;
 }
