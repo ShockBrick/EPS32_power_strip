@@ -14,7 +14,7 @@ class SerchBtDevice : public QObject
 
     Q_OBJECT
     Q_PROPERTY(QList<QString> comboList MEMBER comboList  NOTIFY comboListChanged );
-
+//a
 //
 public:
     SerchBtDevice();

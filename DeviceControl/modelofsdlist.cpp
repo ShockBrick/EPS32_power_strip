@@ -35,7 +35,7 @@ void ModelOfSDList::updatedItems(QList<QString> comboList)
         mItems.append({i});
          qDebug()<<"Dodane do mItems:    "<<mItems.last().addressBL;
     }
-
+//a
 }
 
 void ModelOfSDList::appendItem()
@@ -52,8 +52,6 @@ void ModelOfSDList::appendItem()
 void ModelOfSDList::removeCompletedItems()
 {
     emit preItemRemoved(1); mItems.removeAt(1); emit postItemRemoved();
-
-
 }
 
 

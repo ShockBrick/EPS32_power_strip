@@ -138,7 +138,7 @@ Window {
                 anchors.fill:parent
 onClicked: lll.removeCompletedItems();
 
-
+//a
 
             }
         }

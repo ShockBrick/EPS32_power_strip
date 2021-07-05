@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
 
-
+//a
 
     SerchBtDevice *device1= new SerchBtDevice();
     ModelOfSDList *l1 = new ModelOfSDList;

@@ -14,7 +14,7 @@ class ModelOfSearchedDevices : public QAbstractListModel
 
 public:
     explicit ModelOfSearchedDevices(QObject *parent = nullptr);
-
+//a
     enum{
 
         DescriptionRole

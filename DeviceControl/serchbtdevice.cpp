@@ -13,7 +13,7 @@ SerchBtDevice::SerchBtDevice()
 
     connect(this->discoveryAgent, SIGNAL(finished()),this, SLOT(searchingFinished()));
 
-
+//a
 
 }
 

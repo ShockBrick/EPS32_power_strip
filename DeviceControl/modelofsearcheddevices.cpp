@@ -81,7 +81,7 @@ void ModelOfSearchedDevices::setList(ModelOfSDList *list)
     if(mList)
         mList->disconnect(this);
 
-
+//a
 
     mList = list;
 
