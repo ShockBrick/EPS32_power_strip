@@ -2,7 +2,7 @@
 #define MODELOFSDLIST_H
 
 
-
+#include "serchbtdevice.h"
 //The idea of how to make a combobox in qml with device addresses comes from:
 //https://doc.qt.io/qt-5/qtquick-modelviewsdata-cppmodels.html
 //
@@ -25,7 +25,7 @@ public:
 
     bool setItemAt(int index, const DeviceAddressItem &item);
 
-
+// SerchBtDevice *device1= new SerchBtDevice();
 
 
 
@@ -42,10 +42,10 @@ signals:
 
 
 public slots:
-    void appendItem();
+    void appendItem(QList<QString> comboList);
     void removeCompletedItems();
     void updatedItems(  QList<QString> comboList);
-
+ //void updatedItems( );
 private:
     QVector<DeviceAddressItem> mItems;
 

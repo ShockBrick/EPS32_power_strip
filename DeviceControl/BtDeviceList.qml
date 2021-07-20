@@ -5,33 +5,36 @@ import QtQuick.Layouts 1.3
 
 import Devices11 1.0
 
-    ListView{
+ListView{
+    id: listOfAvailableDevices
+    property alias listview: listOfAvailableDevices
+    implicitWidth:lRect.width
+    implicitHeight: lRect.height
+    clip:true
 
-        implicitWidth:lRect.width
-        implicitHeight: lRect.height
-clip:true
-
-//        model: ListModel{
-//            ListElement{
-//                device: "iPhone"
-//            }
-//            ListElement{
-//                device: "Samsung"
-//            }
-//        }
-            model: ModelOfSearchedDevices{
-                list: lll
-            }
-        delegate: RowLayout{
-            width: parent.width
-            TextField{
-
-                text: model.description
-                Layout.fillWidth: true
+    model: ModelOfSearchedDevices{
+        list: lll
+    }
+    delegate: RowLayout{
+        width: parent.width
+        TextField{
+            id:textFinList
+            readOnly: true
+            text: model.description
+            Layout.fillWidth: true
+            //a
 
 
-//a
+            MouseArea{
+                id:mouseAreaListView
+                anchors.fill:parent
+                onClicked:Dev.setSelectedDevice(textFinList.text)
             }
         }
+
+
     }
+
+
+}
 

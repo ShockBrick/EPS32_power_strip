@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-
+#include "btdevice.h"
 #include "serchbtdevice.h"
 #include "modelofsearcheddevices.h"
 #include "modelofsdlist.h"
@@ -20,20 +20,31 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
 
-//a
 
-    SerchBtDevice *device1= new SerchBtDevice();
-    ModelOfSDList *l1 = new ModelOfSDList;
+  SerchBtDevice *Sdevice1= new SerchBtDevice();
+   ModelOfSDList *l1 = new ModelOfSDList;
     QQmlContext *context=engine.rootContext();
+BTDevice *dev = new BTDevice();
+      //    QVector<DeviceAddressItem> apom = l1->items();
+//    qDebug()<<apom.first().addressBL;
+//    QObject::connect(device1, &SerchBtDevice::comboListChanged,l1,[=](){
+//        l1->updatedItems(device1->getComboList());
+//    });
 
-    QVector<DeviceAddressItem> apom = l1->items();
+//    context->setContextProperty("lll",l1);
+
+
+    QVector<DeviceAddressItem> apom =l1->items();
     qDebug()<<apom.first().addressBL;
-    QObject::connect(device1, &SerchBtDevice::comboListChanged,l1,[=](){
-        l1->updatedItems(device1->getComboList());
+    QObject::connect(Sdevice1, &SerchBtDevice::comboListChanged,l1,[=](){
+        l1->appendItem(Sdevice1->getComboList());
     });
 
     context->setContextProperty("lll",l1);
-    context->setContextProperty("_Device1",device1);
+
+
+    context->setContextProperty("_Device1",Sdevice1);
+    context->setContextProperty("Dev",dev);
 
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));

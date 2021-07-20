@@ -7,6 +7,8 @@
 #include <QVector>
 #include <QQmlListProperty>
 
+
+
 class  ModelOfSDList;
 
 class SerchBtDevice : public QObject
@@ -30,6 +32,8 @@ private:
    // QList<QString> *DeviceInformation{};
     QList<QString> comboList;
    // QList<QString> *comboList{};
+
+
 
 
 
