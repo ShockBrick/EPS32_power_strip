@@ -35,6 +35,14 @@ private slots:
   void connectionEstablished();
   void connectionInterrupted();
   void socketReadyToRead();
+
+
+public:
+  QString getDataReadFromSocket() const;
+
+signals:
+  void theSocketDataWereRead();
+
 };
 
 #endif // BTDEVICE_H

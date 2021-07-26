@@ -10,8 +10,10 @@
 
 #include "btdevice.h"
 #include "serchbtdevice.h"
-class powerStrip
+class powerStrip: public QObject
 {
+
+    Q_OBJECT
    // std::list <device> *listDevice = nullptr;
 std::list<device *> listDevice;
     int numberOfElectricalSocket{0};
@@ -28,6 +30,9 @@ public:
    // void setListDevice(const std::list<device> &value);
     std::list<device *> getListDevice() const;
     void setListDevice(const std::list<device *> &value);
+
+   public slots:
+    void dataFromControlerWereRead();
 };
 
 #endif // POWERSTRIP_H

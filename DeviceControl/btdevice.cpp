@@ -11,6 +11,11 @@ BTDevice::BTDevice()
 
 }
 
+QString BTDevice::getDataReadFromSocket() const
+{
+    return DataReadFromSocket;
+}
+
 void BTDevice::setSelectedDevice(QString SlectedDevice1)
 {
     selectedDevice=SlectedDevice1;
@@ -84,5 +89,6 @@ void BTDevice::socketReadyToRead()
         //qDebug() << line.left(pos);
 
        DataReadFromSocket = line.left(pos);
+       emit theSocketDataWereRead();
       }
 }
